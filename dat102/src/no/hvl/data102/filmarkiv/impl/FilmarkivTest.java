@@ -1,7 +1,5 @@
 package no.hvl.data102.filmarkiv.impl;
 
-import no.hvl.data102.filmarkiv.impl.Sjanger;
-
 import static org.junit.Assert.*;
 
 import org.junit.Test;

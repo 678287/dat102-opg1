@@ -97,13 +97,14 @@ public class Filmarkiv implements FilmarkivADT {
 
 		int filmerMS = 0;
 
-		for (int i = 0; i > tabell.length; i++) {
-			if (tabell[i].getSjanger() == sjanger) {
-				filmerMS++;
-			}
-		}
+	    for (int i = 0; i < antall; i++) {
+	        if (tabell[i] != null && tabell[i].getSjanger() == sjanger) {
+	            filmerMS++;
+	        }
+	    }
 
-		return filmerMS;
+	    System.out.println("Antall filmer av sjanger " + sjanger + ": " + filmerMS);
+	    return filmerMS;
 
 	}
 

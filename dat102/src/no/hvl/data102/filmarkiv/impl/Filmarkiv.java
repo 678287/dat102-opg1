@@ -103,7 +103,6 @@ public class Filmarkiv implements FilmarkivADT {
 	        }
 	    }
 
-	    System.out.println("Antall filmer av sjanger " + sjanger + ": " + filmerMS);
 	    return filmerMS;
 
 	}

@@ -10,6 +10,8 @@ public class FilmarkivMain {
 		Meny meny = new Meny(filma);
 		meny.start();
 
-	       filma.antall(Sjanger.KOMEDIE);
+		//tester metodene
+
+	       System.out.println("Antall filmer av sjanger komedie: " + filma.antall(Sjanger.KOMEDIE));
 	}
 }

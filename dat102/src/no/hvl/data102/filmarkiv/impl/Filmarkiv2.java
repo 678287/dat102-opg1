@@ -1,5 +1,7 @@
 package no.hvl.data102.filmarkiv.impl;
 
+import java.util.ArrayList;
+
 import no.hvl.data102.filmarkiv.adt.FilmarkivADT;
 
 public class Filmarkiv2 implements FilmarkivADT {
@@ -7,7 +9,7 @@ public class Filmarkiv2 implements FilmarkivADT {
 	private int antall; // antall filmer
 	private LinearNode<Film> start; // Starten av linære kjeden
 
-	public Filmarkiv2() {
+	public Filmarkiv2(int maxSize) {
 		start = null; // starten av den linære kjeden er null siden ingen filmer er lagt til enda
 		antall = 0; // antall filmer starter 0
 	}
@@ -41,14 +43,36 @@ public class Filmarkiv2 implements FilmarkivADT {
 
 	@Override
 	public Film[] soekTittel(String delstreng) {
-		// TODO Auto-generated method stub
-		return null;
+
+		ArrayList<Film> matcher = new ArrayList<>();
+
+		LinearNode<Film> temp = start;
+		while (temp != null) {
+			if (temp.data.getTittel().contains(delstreng)) {
+				matcher.add(temp.data);
+			}
+			temp = temp.neste;
+		}
+
+		Film[] resultater = new Film[matcher.size()];
+		return matcher.toArray(resultater);
 	}
 
 	@Override
 	public Film[] soekProdusent(String delstreng) {
-		// TODO Auto-generated method stub
-		return null;
+
+		ArrayList<Film> matcher = new ArrayList<>();
+
+		LinearNode<Film> temp = start;
+		while (temp != null) {
+			if (temp.data.getFilmskaper().contains(delstreng)) {
+				matcher.add(temp.data);
+			}
+			temp = temp.neste;
+		}
+
+		Film[] resultater = new Film[matcher.size()];
+		return matcher.toArray(resultater);
 	}
 
 	@Override

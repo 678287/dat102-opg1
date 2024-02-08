@@ -16,7 +16,7 @@ public class Filmarkiv implements FilmarkivADT {
 	}
 
 	@Override
-	
+
 	public Film finnFilm(int nr) {
 
 		for (Film film : tabell) { // går gjennom hele tabellen
@@ -67,10 +67,11 @@ public class Filmarkiv implements FilmarkivADT {
 		ArrayList<Film> matcher = new ArrayList<>();
 
 		for (Film film : tabell) {
-			if (film.getTittel().contains(delstreng)) {
-				matcher.toArray(new Film[0]);
+			if (film != null && film.getTittel().contains(delstreng)) {
+				matcher.add(film);
 			}
 		}
+
 		Film[] titler = new Film[matcher.size()];
 		return matcher.toArray(titler);
 
@@ -82,12 +83,11 @@ public class Filmarkiv implements FilmarkivADT {
 		ArrayList<Film> matcher = new ArrayList<>();
 
 		for (Film film : tabell) {
-			if (film.getFilmskaper().equals(delstreng)) {
+			if (film != null && film.getFilmskaper() != null && film.getFilmskaper().contains(delstreng)) {
 				matcher.add(film);
-				matcher.toArray(new Film[0]);
 			}
-
 		}
+
 		Film[] filmskapere = new Film[matcher.size()];
 		return matcher.toArray(filmskapere);
 	}
@@ -97,14 +97,13 @@ public class Filmarkiv implements FilmarkivADT {
 
 		int filmerMS = 0;
 
-	    for (int i = 0; i < antall; i++) {
-	        if (tabell[i] != null && tabell[i].getSjanger() == sjanger) {
-	            filmerMS++;
-	        }
-	    }
+		for (int i = 0; i < antall; i++) {
+			if (tabell[i] != null && tabell[i].getSjanger() == sjanger) {
+				filmerMS++;
+			}
+		}
 
-	    return filmerMS;
-
+		return filmerMS;
 	}
 
 	@Override

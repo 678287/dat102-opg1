@@ -10,7 +10,7 @@ public class Film {
 	private int lanseringsdato;
 	private Sjanger sjanger;
 	private String filmselskap;
-	
+
 	public Film() {
 		this.filmnr = 0;
 		this.filmselskap = "";
@@ -18,20 +18,19 @@ public class Film {
 		this.lanseringsdato = 0;
 		this.sjanger = null;
 		this.filmselskap = "";
-		
+
 	}
-	
+
 	public Film(int filmnr, String filmskaper, String tittel, int lanseringsdato, Sjanger sjanger, String filmselskap) {
 
 		this.setFilmnr(filmnr);
+		this.setFilmskaper(filmskaper);
 		this.setTittel(tittel);
 		this.setLanseringsdato(lanseringsdato);
 		this.setSjanger(sjanger);
 		this.setFilmselskap(filmselskap);
 	}
 
-	
-	
 	public int getFilmnr() {
 		return filmnr;
 	}
@@ -64,14 +63,13 @@ public class Film {
 		this.lanseringsdato = lanseringsdato;
 	}
 
-	 public Sjanger getSjanger() {
-                return sjanger;
-        }
+	public Sjanger getSjanger() {
+		return sjanger;
+	}
 
-	 public void setSjanger(Sjanger sjanger) {
-                this.sjanger = sjanger;
-        }
-
+	public void setSjanger(Sjanger sjanger) {
+		this.sjanger = sjanger;
+	}
 
 	public String getFilmselskap() {
 		return filmselskap;
@@ -97,9 +95,10 @@ public class Film {
 		Film other = (Film) obj;
 		return filmnr == other.filmnr;
 	}
-	
-	
-	 
+
+	public String toString() {
+		return "Filmnummer: " + filmnr + ", Tittel: " + tittel + ", Filmskaper: " + filmskaper + ", Lanseringsdato: "
+				+ lanseringsdato + ", Sjanger: " + sjanger + ", Filmselskap: " + filmselskap;
+	}
 
 }
-	 
